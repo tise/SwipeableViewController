@@ -360,7 +360,6 @@ public class SwipeableViewController: UIViewController {
 
 extension SwipeableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(#file.components(separatedBy: "/").last!,":",#line,"-",#function, swipeableItems.count)
         return swipeableItems.count
     }
     

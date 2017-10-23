@@ -311,7 +311,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88F3596FP2;
 				INFOPLIST_FILE = "$(SRCROOT)/SwipeableViewController/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tise.SwipingViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -327,7 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88F3596FP2;
 				INFOPLIST_FILE = "$(SRCROOT)/SwipeableViewController/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tise.SwipingViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
