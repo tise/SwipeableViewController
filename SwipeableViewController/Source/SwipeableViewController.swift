@@ -64,7 +64,7 @@ open class SwipeableViewController: UIViewController {
         // Setup - Navigation bar
         navigationItem.title = initialItem.title
         if #available(iOS 11.0, *) {
-            navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.clear]
+            navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.clear]
         }
         
         // Setup - View
