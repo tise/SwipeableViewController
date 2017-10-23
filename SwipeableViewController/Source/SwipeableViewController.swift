@@ -18,8 +18,8 @@ enum PanDirection {
 
 open class SwipeableViewController: UIViewController {
     // MARK: Swipeable properties
-    var swipeableItems: [SwipeableItem] = []
-    var selectedIndex: Int!
+    open var swipeableItems: [SwipeableItem] = []
+    open var selectedIndex: Int!
     
     // MARK: UI properties
     private lazy var panGestureRecognizer: UIPanGestureRecognizer = {
@@ -40,7 +40,7 @@ open class SwipeableViewController: UIViewController {
     }
     
     lazy var swipeableCollectionView: SwipeableCollectionView = {
-        return SwipeableCollectionView(frame: CGRect(x: 0, y: 64.0, width: view.bounds.width, height: 52.1),
+        return SwipeableCollectionView(frame: CGRect(x: 0, y: 64.0, width: self.view.bounds.width, height: 52.1),
                                        collectionViewLayout: SwipeableCollectionViewFlowLayout())
         }()
     
@@ -64,7 +64,7 @@ open class SwipeableViewController: UIViewController {
         // Setup - Navigation bar
         navigationItem.title = initialItem.title
         if #available(iOS 11.0, *) {
-            navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.clear]
+            navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.clear]
         }
         
         // Setup - View

@@ -11,17 +11,17 @@ import UIKit
 open class SwipeableNavigationBar: UINavigationBar {
     // MARK: Properties
     lazy var largeTitleView: UIView? = {
-        return subviews.first { String(describing: type(of: $0)) == "_UINavigationBarLargeTitleView" }
+        return self.subviews.first { String(describing: type(of: $0)) == "_UINavigationBarLargeTitleView" }
     }()
     
     var largeTitleLabel: UILabel? {
-        return largeTitleView?.subviews.first { $0 is UILabel } as? UILabel
+        return self.largeTitleView?.subviews.first { $0 is UILabel } as? UILabel
     }
     
     lazy var collectionView: SwipeableCollectionView = {
         $0.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         
         return $0
-    }(SwipeableCollectionView(frame: largeTitleView!.bounds,
+    }(SwipeableCollectionView(frame: self.largeTitleView!.bounds,
                               collectionViewLayout: SwipeableCollectionViewFlowLayout()))
 }
