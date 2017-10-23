@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct SwipeableItem {
+public struct SwipeableItem {
     var title: String
     var viewController: UIViewController
 }

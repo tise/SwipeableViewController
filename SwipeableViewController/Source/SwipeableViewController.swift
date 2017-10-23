@@ -8,11 +8,6 @@
 
 import UIKit
 
-/**
- Pattern: Massive View Controller
- 
- Notes:
- */
 enum PanDirection {
     case rightToLeft, leftToRight
     
@@ -21,7 +16,7 @@ enum PanDirection {
     }
 }
 
-public class SwipeableViewController: UIViewController {
+open class SwipeableViewController: UIViewController {
     // MARK: Swipeable properties
     var swipeableItems: [SwipeableItem] = []
     var selectedIndex: Int!
@@ -50,7 +45,7 @@ public class SwipeableViewController: UIViewController {
         }()
     
     // MARK: Life cycle
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         // Safeguards
@@ -94,7 +89,7 @@ public class SwipeableViewController: UIViewController {
         add(childViewController: initialItem.viewController)
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if #available(iOS 11, *) {
             if let titleView = navigationBar.largeTitleView, titleView.subviews.filter ({ $0 is UICollectionView }).isEmpty {
@@ -163,17 +158,10 @@ public class SwipeableViewController: UIViewController {
     private weak var animatingViewController: UIViewController?
     private var didForceCancel = false
     
-    var prevState: UIGestureRecognizerState!
-    
     @objc
     func viewPanned(_ gesture: UIPanGestureRecognizer) {
         let velocity = gesture.velocity(in: gesture.view)
         let direction = PanDirection.directionFor(velocity: velocity)
-        
-        if gesture.state != prevState {
-            print(#file.components(separatedBy: "/").last!,":",#line,"-",#function, gesture)
-            prevState = gesture.state
-        }
         
         // Animate
         switch gesture.state {
@@ -229,7 +217,6 @@ public class SwipeableViewController: UIViewController {
             }
             
             guard let startPoint = startPoint, let startDirection = startDirection, let animatingViewController = animatingViewController else {
-                print("ffffff")
                 return
             }
             
@@ -248,14 +235,12 @@ public class SwipeableViewController: UIViewController {
                 swipeDistance = view.frame.width - startPoint.x
                 let progress = relativeLocation / swipeDistance // 0...1, not 1...100
                 
-                // print(#file.components(separatedBy: "/").last!,":",#line,"-",#function, "LtR", progress, velocity.x, progress > 0.5 || velocity.x > 1000 ? "Done" : "Not done")
                 isDone = progress > completionTreshold || velocity.x > velocityTreshold
                 
             case .rightToLeft:
                 swipeDistance = startPoint.x
                 let progress = relativeLocation / swipeDistance
                 
-                // print(#file.components(separatedBy: "/").last!,":",#line,"-",#function, "RtL", progress, velocity.x, fabs(progress) > 0.5 || velocity.x < -1000 ? "Done" : "Not done")
                 isDone = fabs(progress) > completionTreshold || velocity.x < -velocityTreshold
             }
             
@@ -271,7 +256,6 @@ public class SwipeableViewController: UIViewController {
                                 let translationX = (self.startDirection == .leftToRight) ? previousView.frame.width : -previousView.frame.width
                                 previousView.transform = CGAffineTransform(translationX: translationX, y: 0)
                 }, completion: { (isFinished) in
-                    print(#file.components(separatedBy: "/").last!,":",#line,"-",#function, "Complete animation \(isFinished ? "FINISHED" : "CANCELLED")")
 
                     self.remove(childViewController: self.swipeableItems[self.selectedIndex].viewController)
                     self.endAnimation()
@@ -297,7 +281,6 @@ public class SwipeableViewController: UIViewController {
                                 let translationX = (self.startDirection! == .leftToRight) ? -previousView.frame.width : previousView.frame.width
                                 previousView.transform = CGAffineTransform(translationX: translationX, y: 0)
                 }, completion: { (isFinished) in
-                    print(#file.components(separatedBy: "/").last!,":",#line,"-",#function, "Cancel animation \(isFinished ? "FINISHED" : "CANCELLED")")
                     self.remove(childViewController: self.animatingViewController!)
                     self.endAnimation()
                 })
@@ -359,11 +342,11 @@ public class SwipeableViewController: UIViewController {
 }
 
 extension SwipeableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return swipeableItems.count
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SwipeableCell.id, for: indexPath) as? SwipeableCell else {
             fatalError()
         }
@@ -374,13 +357,13 @@ extension SwipeableViewController: UICollectionViewDataSource, UICollectionViewD
         return cell
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         swipeTo(index: indexPath.row)
     }
 }
 
 extension SwipeableViewController: UIGestureRecognizerDelegate {
-    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let pan = gestureRecognizer as? UIPanGestureRecognizer {
             let velocity = pan.velocity(in: view)
             return fabs(velocity.x) > fabs(velocity.y)

@@ -8,8 +8,8 @@
 
 import UIKit
 
-public class SwipeableNavigationController: UINavigationController {
-    override public func viewDidLoad() {
+open class SwipeableNavigationController: UINavigationController {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         guard navigationBar is SwipeableNavigationBar else {
             fatalError("navigationBar must be of class SwipeableNavigationBar")
@@ -20,13 +20,13 @@ public class SwipeableNavigationController: UINavigationController {
 }
 
 extension SwipeableNavigationController: UINavigationControllerDelegate {
-    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    open func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if #available(iOS 11.0, *) {
             navigationController.navigationBar.prefersLargeTitles = viewController is SwipeableViewController
         }
     }
     
-    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if #available(iOS 11.0, *) {
             navigationController.navigationBar.prefersLargeTitles = viewController is SwipeableViewController
         }

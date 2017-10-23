@@ -20,7 +20,6 @@
 		08A9E2FE1F9E356C000B2729 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08A9E2EF1F9E356C000B2729 /* LaunchScreen.storyboard */; };
 		08A9E2FF1F9E356C000B2729 /* ExampleSwipeableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2F11F9E356C000B2729 /* ExampleSwipeableViewController.swift */; };
 		08A9E3001F9E356C000B2729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2F21F9E356C000B2729 /* AppDelegate.swift */; };
-		08A9E3011F9E356C000B2729 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08A9E2F31F9E356C000B2729 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,7 +155,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08A9E3011F9E356C000B2729 /* Info.plist in Resources */,
 				08A9E2FE1F9E356C000B2729 /* LaunchScreen.storyboard in Resources */,
 				08A9E2FD1F9E356C000B2729 /* Assets.xcassets in Resources */,
 				08A9E2FC1F9E356C000B2729 /* SwipeableCell.xib in Resources */,

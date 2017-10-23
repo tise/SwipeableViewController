@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SwipeableNavigationBar: UINavigationBar {
+open class SwipeableNavigationBar: UINavigationBar {
     // MARK: Properties
     lazy var largeTitleView: UIView? = {
         return subviews.first { String(describing: type(of: $0)) == "_UINavigationBarLargeTitleView" }

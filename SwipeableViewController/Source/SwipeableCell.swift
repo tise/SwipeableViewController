@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SwipeableCell: UICollectionViewCell {
+open class SwipeableCell: UICollectionViewCell {
     static let id = "SwipeableCell"
     
     @IBOutlet weak var label: UILabel!

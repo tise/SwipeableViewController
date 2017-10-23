@@ -8,14 +8,13 @@
 
 import UIKit
 
-class SwipeableCollectionViewFlowLayout: UICollectionViewFlowLayout {
-    
+open class SwipeableCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override init() {
         super.init()
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }

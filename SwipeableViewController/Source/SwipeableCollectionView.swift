@@ -10,7 +10,7 @@ import UIKit
 
 typealias CollectionViewController = UICollectionViewDelegate & UICollectionViewDataSource
 
-class SwipeableCollectionView: UICollectionView {
+open class SwipeableCollectionView: UICollectionView {
     var controller: CollectionViewController? {
         didSet {
             delegate = controller
@@ -27,7 +27,7 @@ class SwipeableCollectionView: UICollectionView {
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
