@@ -12,6 +12,7 @@ s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'Oscar Apeland' => 'oscar@tiseit.com' }
 s.source           = { :git => 'https://github.com/tiseoslo/SwipeableViewController.git', :tag => s.version.to_s }
 
+s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 s.ios.deployment_target = '9.0'
 s.source_files = 'SwipeableViewController/Source/*.{swift,xib}'
 

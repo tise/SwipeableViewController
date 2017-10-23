@@ -34,7 +34,7 @@ open class SwipeableCollectionView: UICollectionView {
     
     private func setup() {
         backgroundColor = .clear
-        register(UINib(nibName: SwipeableCell.id, bundle: nil), forCellWithReuseIdentifier: SwipeableCell.id)
+        register(UINib(nibName: SwipeableCell.id, bundle: Bundle(for: classForCoder)), forCellWithReuseIdentifier: SwipeableCell.id)
         alwaysBounceHorizontal = true
         showsHorizontalScrollIndicator = false
     }

@@ -11,10 +11,6 @@ import UIKit
 open class SwipeableNavigationController: UINavigationController {
     override open func viewDidLoad() {
         super.viewDidLoad()
-        guard navigationBar is SwipeableNavigationBar else {
-            fatalError("navigationBar must be of class SwipeableNavigationBar")
-        }
-        
         delegate = self
     }
 }
