@@ -297,7 +297,7 @@ open class SwipeableViewController: UIViewController {
         animationProgress = 0
     }
     
-    func swipeTo(index nextIndex: Int) {
+    open func swipeTo(index nextIndex: Int) {
         guard swipeableItems.indices.contains(nextIndex) else {
             return
         }

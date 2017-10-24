@@ -6,7 +6,8 @@
 
 ## Example
 
-To run the example project, clone the repo and build.
+To test the project, clone this repo and run SwipeableViewController.xcodeproj.
+![Example gif](https://github.com/tiseoslo/SwipeableViewController/blob/master/example.gif)
 
 ## Requirements
 
