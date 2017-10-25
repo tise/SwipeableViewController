@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 public struct SwipeableItem {
-    var title: String
-    var viewController: UIViewController
+    public var title: String
+    public var viewController: UIViewController
     
     public init(title: String, viewController: UIViewController) {
         self.title = title
