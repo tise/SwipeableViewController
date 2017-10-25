@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'SwipeableViewController'
-s.version          = '0.1.6'
+s.version          = '0.1.7'
 s.summary          = 'A small UI component to build UIPageViewController-y views in your app.'
 
 s.description      = <<-DESC
