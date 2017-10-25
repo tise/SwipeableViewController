@@ -20,6 +20,10 @@ extension SwipeableNavigationController: UINavigationControllerDelegate {
         if #available(iOS 11.0, *) {
             navigationController.navigationBar.prefersLargeTitles = viewController is SwipeableViewController
         }
+        
+        if let largeTitleLabel = (navigationBar as? SwipeableNavigationBar)?.largeTitleLabel {
+            navigationBar.sendSubview(toBack: largeTitleLabel)
+        }
     }
     
     open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
