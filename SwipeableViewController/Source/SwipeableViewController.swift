@@ -40,7 +40,7 @@ open class SwipeableViewController: UIViewController {
     }
     
     lazy var swipeableCollectionView: SwipeableCollectionView = {
-        return SwipeableCollectionView(frame: CGRect(x: 0, y: 64.0, width: self.view.bounds.width, height: 52.1),
+        return SwipeableCollectionView(frame: CGRect(x: 0, y: 64.0, width: self.view.bounds.width, height: 52.0),
                                        collectionViewLayout: SwipeableCollectionViewFlowLayout())
         }()
     

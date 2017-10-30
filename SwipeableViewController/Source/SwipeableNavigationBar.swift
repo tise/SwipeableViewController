@@ -28,19 +28,19 @@ open class SwipeableNavigationBar: UINavigationBar {
     
     // MARK: Properties
     lazy var largeTitleView: UIView? = {
-        return self.subviews.first {
+        return subviews.first {
             String(describing: type(of: $0)) == "_UINavigationBarLargeTitleView"
         }
     }()
     
     var largeTitleLabel: UILabel? {
-        return self.largeTitleView?.subviews.first { $0 is UILabel } as? UILabel
+        return largeTitleView?.subviews.first { $0 is UILabel } as? UILabel
     }
     
     lazy var collectionView: SwipeableCollectionView = {
         $0.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         
         return $0
-    }(SwipeableCollectionView(frame: self.largeTitleView!.bounds,
+    }(SwipeableCollectionView(frame: largeTitleView!.bounds,
                               collectionViewLayout: SwipeableCollectionViewFlowLayout()))
 }
