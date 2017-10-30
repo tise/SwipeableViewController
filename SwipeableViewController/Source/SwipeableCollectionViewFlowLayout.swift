@@ -22,15 +22,16 @@ open class SwipeableCollectionViewFlowLayout: UICollectionViewFlowLayout {
     private var collectionViewObservation: NSKeyValueObservation?
     private func setup() {
         collectionViewObservation = observe(\.collectionView, options: [.new]) { (layout, change) in
-            guard let newCollectionView = change.newValue as? UICollectionView else {
-                return
+            guard let newCollectionView = change.newValue as? UICollectionView, let layout = newCollectionView.collectionViewLayout as? SwipeableCollectionViewFlowLayout else {
+                    return
             }
             
-            self.sectionInset = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10.0)
-            self.estimatedItemSize = CGSize(width: 60, height: newCollectionView.frame.height)
-            self.minimumInteritemSpacing = .leastNonzeroMagnitude
-            self.minimumLineSpacing = .leastNonzeroMagnitude
-            self.scrollDirection = .horizontal
+            //
+            layout.sectionInset = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10.0)
+            layout.estimatedItemSize = CGSize(width: 60, height: newCollectionView.frame.height)
+            layout.minimumInteritemSpacing = .leastNonzeroMagnitude
+            layout.minimumLineSpacing = .leastNonzeroMagnitude
+            layout.scrollDirection = .horizontal
         }
     }
 }

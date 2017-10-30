@@ -23,6 +23,10 @@ extension SwipeableNavigationController: UINavigationControllerDelegate {
     
     open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         updateFor(viewController: viewController)
+        
+        if let collectionView = (navigationBar as? SwipeableNavigationBar)?.collectionView, let superview = collectionView.superview {
+            superview.bringSubview(toFront: collectionView)
+        }
     }
     
     private func updateFor(viewController: UIViewController) {
