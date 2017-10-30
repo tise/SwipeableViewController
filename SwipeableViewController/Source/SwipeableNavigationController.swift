@@ -9,23 +9,23 @@
 import Foundation
 import UIKit
 
-class SwipeableNavigationController: UINavigationController {
-    override func viewDidLoad() {
+open class SwipeableNavigationController: UINavigationController {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
     }
 }
 
 extension SwipeableNavigationController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    open func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         updateFor(viewController: viewController)
     }
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         updateFor(viewController: viewController)
     }
     
-    func updateFor(viewController: UIViewController) {
+    private func updateFor(viewController: UIViewController) {
         let isSwipeable = viewController is SwipeableViewController
         
         if #available(iOS 11, *) {
