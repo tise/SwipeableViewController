@@ -32,6 +32,5 @@ open class SwipeableCollectionViewFlowLayout: UICollectionViewFlowLayout {
             self.minimumLineSpacing = .leastNonzeroMagnitude
             self.scrollDirection = .horizontal
         }
-
     }
 }
