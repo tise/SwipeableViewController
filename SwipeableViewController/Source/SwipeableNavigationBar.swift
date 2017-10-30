@@ -9,9 +9,28 @@
 import UIKit
 
 open class SwipeableNavigationBar: UINavigationBar {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    private func setup() {
+        if #available(iOS 11.0, *) {
+            largeTitleTextAttributes = [.foregroundColor: UIColor.clear]
+            prefersLargeTitles = true
+        }
+    }
+    
     // MARK: Properties
     lazy var largeTitleView: UIView? = {
-        return self.subviews.first { String(describing: type(of: $0)) == "_UINavigationBarLargeTitleView" }
+        return self.subviews.first {
+            String(describing: type(of: $0)) == "_UINavigationBarLargeTitleView"
+        }
     }()
     
     var largeTitleLabel: UILabel? {

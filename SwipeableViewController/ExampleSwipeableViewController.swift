@@ -17,10 +17,12 @@ class ExampleSwipeableViewController: SwipeableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .always
             navigationItem.searchController = searchController
         } else {
             navigationItem.titleView = searchController.searchBar
         }
+        
         definesPresentationContext = true
     }
 }

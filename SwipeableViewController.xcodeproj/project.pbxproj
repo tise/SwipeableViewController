@@ -12,7 +12,6 @@
 		08A9E2F61F9E356C000B2729 /* SwipeableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2E71F9E356C000B2729 /* SwipeableItem.swift */; };
 		08A9E2F71F9E356C000B2729 /* SwipeableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2E81F9E356C000B2729 /* SwipeableCollectionView.swift */; };
 		08A9E2F81F9E356C000B2729 /* SwipeableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2E91F9E356C000B2729 /* SwipeableCell.swift */; };
-		08A9E2F91F9E356C000B2729 /* SwipeableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2EA1F9E356C000B2729 /* SwipeableNavigationController.swift */; };
 		08A9E2FA1F9E356C000B2729 /* SwipeableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2EB1F9E356C000B2729 /* SwipeableViewController.swift */; };
 		08A9E2FB1F9E356C000B2729 /* SwipeableCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2EC1F9E356C000B2729 /* SwipeableCollectionViewFlowLayout.swift */; };
 		08A9E2FC1F9E356C000B2729 /* SwipeableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A9E2ED1F9E356C000B2729 /* SwipeableCell.xib */; };
@@ -20,6 +19,7 @@
 		08A9E2FE1F9E356C000B2729 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08A9E2EF1F9E356C000B2729 /* LaunchScreen.storyboard */; };
 		08A9E2FF1F9E356C000B2729 /* ExampleSwipeableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2F11F9E356C000B2729 /* ExampleSwipeableViewController.swift */; };
 		08A9E3001F9E356C000B2729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A9E2F21F9E356C000B2729 /* AppDelegate.swift */; };
+		08D0565D1FA723CD00300DBF /* SwipeableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D0565C1FA723CD00300DBF /* SwipeableNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,6 @@
 		08A9E2E71F9E356C000B2729 /* SwipeableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableItem.swift; sourceTree = "<group>"; };
 		08A9E2E81F9E356C000B2729 /* SwipeableCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableCollectionView.swift; sourceTree = "<group>"; };
 		08A9E2E91F9E356C000B2729 /* SwipeableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableCell.swift; sourceTree = "<group>"; };
-		08A9E2EA1F9E356C000B2729 /* SwipeableNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableNavigationController.swift; sourceTree = "<group>"; };
 		08A9E2EB1F9E356C000B2729 /* SwipeableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableViewController.swift; sourceTree = "<group>"; };
 		08A9E2EC1F9E356C000B2729 /* SwipeableCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		08A9E2ED1F9E356C000B2729 /* SwipeableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwipeableCell.xib; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		08A9E2F11F9E356C000B2729 /* ExampleSwipeableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleSwipeableViewController.swift; sourceTree = "<group>"; };
 		08A9E2F21F9E356C000B2729 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08A9E2F31F9E356C000B2729 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08D0565C1FA723CD00300DBF /* SwipeableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +84,11 @@
 		08A9E2E51F9E356C000B2729 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				08D0565C1FA723CD00300DBF /* SwipeableNavigationController.swift */,
 				08A9E2E61F9E356C000B2729 /* SwipeableNavigationBar.swift */,
 				08A9E2E71F9E356C000B2729 /* SwipeableItem.swift */,
 				08A9E2E81F9E356C000B2729 /* SwipeableCollectionView.swift */,
 				08A9E2E91F9E356C000B2729 /* SwipeableCell.swift */,
-				08A9E2EA1F9E356C000B2729 /* SwipeableNavigationController.swift */,
 				08A9E2EB1F9E356C000B2729 /* SwipeableViewController.swift */,
 				08A9E2EC1F9E356C000B2729 /* SwipeableCollectionViewFlowLayout.swift */,
 				08A9E2ED1F9E356C000B2729 /* SwipeableCell.xib */,
@@ -168,10 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D0565D1FA723CD00300DBF /* SwipeableNavigationController.swift in Sources */,
 				08A9E2F81F9E356C000B2729 /* SwipeableCell.swift in Sources */,
 				08A9E2FF1F9E356C000B2729 /* ExampleSwipeableViewController.swift in Sources */,
 				08A9E2F51F9E356C000B2729 /* SwipeableNavigationBar.swift in Sources */,
-				08A9E2F91F9E356C000B2729 /* SwipeableNavigationController.swift in Sources */,
 				08A9E2FB1F9E356C000B2729 /* SwipeableCollectionViewFlowLayout.swift in Sources */,
 				08A9E2F61F9E356C000B2729 /* SwipeableItem.swift in Sources */,
 				08A9E2F41F9E356C000B2729 /* ExampleViewController.swift in Sources */,
