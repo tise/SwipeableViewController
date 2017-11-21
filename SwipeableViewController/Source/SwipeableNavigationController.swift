@@ -18,28 +18,33 @@ open class SwipeableNavigationController: UINavigationController {
 
 extension SwipeableNavigationController: UINavigationControllerDelegate {
     open func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        updateFor(viewController: viewController)
+        if #available(iOS 11, *) {
+            updateFor(viewController: viewController)
+        }
     }
     
     open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        updateFor(viewController: viewController)
-        
-        if let collectionView = (navigationBar as? SwipeableNavigationBar)?.collectionView, let superview = collectionView.superview {
-            superview.bringSubview(toFront: collectionView)
+        if #available(iOS 11, *) {
+            updateFor(viewController: viewController)
+            if let collectionView = (navigationBar as? SwipeableNavigationBar)?.collectionView, let superview = collectionView.superview {
+                superview.bringSubview(toFront: collectionView)
+            }
         }
     }
     
+    @available(iOS 11, *)
     private func updateFor(viewController: UIViewController) {
         let isSwipeable = viewController is SwipeableViewController
         
-        if #available(iOS 11, *) {
-            viewController.navigationItem.largeTitleDisplayMode = isSwipeable ? .always : .never
+        viewController.navigationItem.largeTitleDisplayMode = isSwipeable ? .always : .never
+        if let collectionView = (navigationBar as? SwipeableNavigationBar)?.collectionView {
+            collectionView.isHidden = !isSwipeable
         }
         
-        if #available(iOS 11, *), let collectionView = (navigationBar as? SwipeableNavigationBar)?.collectionView {
-            collectionView.isHidden = !isSwipeable
-        } else if let collectionView = (viewController as? SwipeableViewController)?.collectionView {
+        /* wut
+         else if let collectionView = (viewController as? SwipeableViewController)?.collectionView {
             collectionView.isHidden = !isSwipeable
         }
+         */
     }
 }

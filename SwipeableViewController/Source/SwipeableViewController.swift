@@ -39,10 +39,8 @@ open class SwipeableViewController: UIViewController {
         }
     }
     
-    lazy var swipeableCollectionView: SwipeableCollectionView = {
-        return SwipeableCollectionView(frame: CGRect(x: 0, y: 64.0, width: self.view.bounds.width, height: 52.0),
-                                       collectionViewLayout: SwipeableCollectionViewFlowLayout())
-        }()
+    lazy var swipeableCollectionView = SwipeableCollectionView(frame: CGRect(x: 0, y: 64.0, width: self.view.bounds.width, height: 52.0),
+                                                               collectionViewLayout: SwipeableCollectionViewFlowLayout())
     
     // MARK: Life cycle
     override open func viewDidLoad() {
@@ -64,18 +62,12 @@ open class SwipeableViewController: UIViewController {
         // Setup - Navigation bar
         navigationItem.title = initialItem.title
         
-        if #available(iOS 11.0, *) {
-            navigationItem.largeTitleDisplayMode = .always
-        }
-        
         // Setup - View
         view.backgroundColor = .white
         
-        
         // On iOS <11 we add the collectionView underneath the navigation bar instead of inside.
         // Negative OS check currently impossible
-        if #available(iOS 11, *) {}
-        else {
+        if #available(iOS 11, *) {} else {
             swipeableCollectionView.translatesAutoresizingMaskIntoConstraints = false
             automaticallyAdjustsScrollViewInsets = false
             
@@ -94,7 +86,7 @@ open class SwipeableViewController: UIViewController {
         super.viewDidAppear(animated)
         if #available(iOS 11, *) {
             if let titleView = navigationBar.largeTitleView, titleView.subviews.filter ({ $0 is UICollectionView }).isEmpty {
-                navigationBar.largeTitleView!.addSubview(navigationBar.collectionView)
+                titleView.addSubview(navigationBar.collectionView)
             }
         }
         
@@ -304,10 +296,7 @@ open class SwipeableViewController: UIViewController {
         }
         
         let direction: PanDirection = nextIndex > selectedIndex ? .leftToRight : .rightToLeft
-        
-        let lowerBound = min(selectedIndex, nextIndex)
-        let upperBound = max(selectedIndex, nextIndex)
-        var viewControllers = swipeableItems[lowerBound...upperBound].map { $0.viewController }
+        var viewControllers = swipeableItems[min(selectedIndex, nextIndex)...max(selectedIndex, nextIndex)].map { $0.viewController }
         
         if direction == .rightToLeft {
             viewControllers.reverse()
@@ -337,7 +326,9 @@ open class SwipeableViewController: UIViewController {
             
             self.selectedIndex = nextIndex
             self.navigationItem.title = self.swipeableItems[self.selectedIndex].title
-            self.collectionView!.selectItem(at: IndexPath(item: self.selectedIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+            self.collectionView!.selectItem(at: IndexPath(item: self.selectedIndex, section: 0),
+                                            animated: true,
+                                            scrollPosition: .centeredHorizontally)
         }
     }
 }
@@ -366,9 +357,11 @@ extension SwipeableViewController: UICollectionViewDataSource, UICollectionViewD
 extension SwipeableViewController: UIGestureRecognizerDelegate {
     open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let pan = gestureRecognizer as? UIPanGestureRecognizer {
+            // Only register horizontal pans
             let velocity = pan.velocity(in: view)
             return fabs(velocity.x) > fabs(velocity.y)
         }
+        
         return true
     }
 }
